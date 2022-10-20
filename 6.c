@@ -13,6 +13,7 @@ int main(int argc, char** argv){
     char* name;
     char* newvalue;
     int opt;
+    int flag=0;
     while( (opt = getopt(argc, argv, opts)) != -1 ){
         switch (opt){
             case 'a':{
@@ -33,5 +34,9 @@ int main(int argc, char** argv){
             }
         }
     }
+    if(flag==2){
+    	setenv(name, newvalue, 1);
+    	printf("New value: %s = %s\n", name, getenv(name));
+    	}
     return 0;
 }
